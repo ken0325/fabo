@@ -1,16 +1,18 @@
 import { Suspense } from "react";
-import Button from "@mui/material/Button";
-import Rating from "@mui/material/Rating";
-import Stack from "@mui/material/Stack";
 import "./App.css";
+import { Button, Rating, Stack } from "@mui/material";
+import { UserContextContainer } from "./contexts/UserContext";
+import FaboAppBar from "./modules/fabo-app-bar/FaboAppBar";
 
+const MainHeader = () => {
+  return <FaboAppBar />;
+};
 
 const MainContent = () => {
   return (
     <Suspense fallback={<div>loading</div>}>
       <div className="App">
-        <header className="App-header">        
-
+        <header className="App-header">
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -34,10 +36,13 @@ const MainContent = () => {
   );
 };
 
-const App = () => {
+const FaboApp = () => {
   return (
+    <UserContextContainer.Provider>
+      <MainHeader />
       <MainContent />
+    </UserContextContainer.Provider>
   );
 };
 
-export default App;
+export default FaboApp;
