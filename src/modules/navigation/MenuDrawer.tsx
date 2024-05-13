@@ -25,9 +25,9 @@ const MenuDrawer = ({ toggleDrawer }: MenuDrawerProps) => {
     >
       <Divider />
       <List>
-        {menuList.map((text, index) => (
+        {menuList.map((text) => (
           <ListItem key={text.text} disablePadding>
-          <Link href={text.path} underline="none" color="inherit">
+          <Link href={text.path} underline="none" color="inherit" style={{width: '100%'}}>
             <ListItemButton>
               <ListItemIcon>
                 {text.icon}
@@ -40,6 +40,7 @@ const MenuDrawer = ({ toggleDrawer }: MenuDrawerProps) => {
         ))}
       </List>
     </Box>
+    
   );
 };
 export default MenuDrawer;

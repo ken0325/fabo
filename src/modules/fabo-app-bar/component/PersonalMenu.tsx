@@ -12,6 +12,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import { UserContextContainer } from "../../../contexts/UserContext";
 
 interface PersonalMenuProps {
   handleMenu: (event: React.MouseEvent<HTMLElement>) => void;
@@ -24,6 +25,11 @@ const PersonalMenu = ({
   handleClose,
   anchorEl,
 }: PersonalMenuProps) => {
+  const { setAuth } = UserContextContainer.useContainer();
+  const handleLogout = () => {
+    setAuth(false)
+    handleClose()
+}
   return (
     <div>
       <IconButton
@@ -76,7 +82,7 @@ const PersonalMenu = ({
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
