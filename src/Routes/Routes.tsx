@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import HomePage from "../modules/home/HomePage";
 import WatchSalonPage from "../modules/watch-salon/pages/WatchSalonPage";
+import ApplyFormPage from "../modules/join-as-partner/ApplyFormPage";
 
 export const router = createBrowserRouter([    
     {
@@ -9,7 +10,8 @@ export const router = createBrowserRouter([
         element: <App/>,
         children: [
             { path: "", element: <HomePage/>},
-            { path: "search", element: <WatchSalonPage/>}
+            { path: "search", element: <WatchSalonPage/>},
+            { path: "apply", element: <ApplyFormPage/>}
         ]
     }
 ]

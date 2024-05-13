@@ -14,6 +14,7 @@ import {
   FormControlLabel,
   Switch,
   Drawer,
+  Link,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
@@ -82,6 +83,9 @@ const FaboAppBar = ({
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             髮寳
           </Typography>
+          <Link href="/apply" underline="none" color="inherit">
+            {'Join us'}
+          </Link>
           {!auth && <Button color="inherit">Login</Button>}
           {auth && (
             <div>
