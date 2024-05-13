@@ -12,7 +12,7 @@ export const SalonPageBody = () => {
           justifyContent: "space-between",
         }}
       >
-        <h1>全部髮型屋</h1>
+        <h1>【髮型屋推介】香港No.2 Hair Salon 網上預約平台｜獨家優惠</h1>
       </div>
 
       <Grid container spacing={2}>
