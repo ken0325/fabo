@@ -4,6 +4,7 @@ import FaboAppBar from "./modules/fabo-app-bar/FaboAppBar";
 import { Outlet } from "react-router";
 import MenuDrawer from "./modules/navigation/MenuDrawer";
 import { useState } from "react";
+import { Container, styled } from "@mui/material";
 
 const MainHeader = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -20,12 +21,15 @@ const MainHeader = () => {
     />
   );
 };
+const StyledContainer = styled(Container)({ minHeight: "calc(100vh - 96px)"})
 
 const FaboApp = () => {
   return (
     <UserContextContainer.Provider>
       <MainHeader />
+      <StyledContainer maxWidth="lg">
       <Outlet />
+      </StyledContainer>
     </UserContextContainer.Provider>
   );
 };

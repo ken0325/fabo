@@ -4,27 +4,17 @@ import {
   Typography,
   AppBar,
   Toolbar,
-  Menu,
-  MenuItem,
-  Avatar,
-  Divider,
-  ListItemIcon,
   Box,
   FormGroup,
   FormControlLabel,
   Switch,
   Drawer,
-  Link,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import {
-  AccountCircle,
-  Logout,
-  PersonAdd,
-  Settings,
-} from "@mui/icons-material";
 import { UserContextContainer } from "../../contexts/UserContext";
+import PersonalMenu from "./component/PersonalMenu";
+import { FABO_APP_NAME_CHI } from "../app-fwk/constants/CommonConstatns";
 
 interface FaboAppBarProps {
   drawerContent?: React.ReactNode;
@@ -81,75 +71,24 @@ const FaboAppBar = ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            髮寳
+            {FABO_APP_NAME_CHI}
           </Typography>
-          <Link href="/apply" underline="none" color="inherit">
-            {'Join us'}
-          </Link>
-          {!auth && <Button color="inherit">Login</Button>}
-          {auth && (
-            <div>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>
-                  <Avatar />
-                  &nbsp;Profile
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <Avatar />
-                  &nbsp;My account
-                </MenuItem>
-                <Divider />
-                <MenuItem onClick={handleClose}>
-                  <ListItemIcon>
-                    <PersonAdd fontSize="small" />
-                  </ListItemIcon>
-                  Add another account
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <ListItemIcon>
-                    <Settings fontSize="small" />
-                  </ListItemIcon>
-                  Settings
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <ListItemIcon>
-                    <Logout fontSize="small" />
-                  </ListItemIcon>
-                  Logout
-                </MenuItem>
-              </Menu>
-            </div>
+          <Button href="/apply" color="inherit">Join us</Button>
+          {!auth ? (
+            <Button color="inherit">Login</Button>
+          ) : (
+            <PersonalMenu
+              handleMenu={handleMenu}
+              handleClose={handleClose}
+              anchorEl={anchorEl}
+            />
           )}
         </Toolbar>
       </AppBar>
       {!!drawerContent && (
         <Drawer open={drawerOpen} onClose={drawerOnClose}>
-        {drawerContent}
-      </Drawer>
+          {drawerContent}
+        </Drawer>
       )}
     </Box>
   );

@@ -1,7 +1,5 @@
-import { Grid } from "@mui/material";
-import SalonResult from "../components/salon-result/SalonResult";
-import SalonSearch from "../components/salon-search/SalonSearch";
 import { WatchSalonContainer } from "../contexts/WatchSalonContext";
+import { SalonPageBody } from "../components/SalonPageBody";
 
 export const WatchSalContainer = ({ children }: { children: JSX.Element }) => {
   return (
@@ -9,24 +7,10 @@ export const WatchSalContainer = ({ children }: { children: JSX.Element }) => {
   );
 };
 
-const WatchSalonContext = () => {
-  return (
-    <Grid container spacing={2}>
-      <Grid xs={4}>
-        <SalonResult />
-      </Grid>
-
-      <Grid xs={8}>
-        <SalonSearch />
-      </Grid>
-    </Grid>
-  );
-};
-
 const WatchSalonPage = () => {
   return (
     <WatchSalContainer>
-      <WatchSalonContext />
+      <SalonPageBody />
     </WatchSalContainer>
   );
 };

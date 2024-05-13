@@ -3,8 +3,8 @@ import { Suspense } from "react";
 
 interface Props {}
 const HomePage = (props: Props) => {
-    return (
-        <Suspense fallback={<div>loading</div>}>
+  return (
+    <Suspense fallback={<div>loading</div>}>
       <div className="App">
         <header className="App-header">
           <p>
@@ -27,6 +27,6 @@ const HomePage = (props: Props) => {
         </header>
       </div>
     </Suspense>
-    )
+  );
 };
 export default HomePage;
