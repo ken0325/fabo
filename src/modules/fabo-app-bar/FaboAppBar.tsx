@@ -69,7 +69,7 @@ const FaboAppBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+            髮寳
           </Typography>
           {!auth && (
             <Button color="inherit">Login</Button>
@@ -102,10 +102,10 @@ const FaboAppBar = () => {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>
-                  <Avatar /> Profile
+                  <Avatar />&nbsp;Profile
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <Avatar /> My account
+                  <Avatar />&nbsp;My account
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={handleClose}>
