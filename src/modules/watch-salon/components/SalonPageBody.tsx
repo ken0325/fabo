@@ -16,12 +16,10 @@ export const SalonPageBody = () => {
       </div>
 
       <Grid container spacing={2}>
-        <Grid xs={3}>
+        <Grid xs={3}  style={{paddingRight: '2%'}}>
           <SalonSearch />
         </Grid>
-        <Grid xs={1}>
-        </Grid>
-        <Grid xs={8}>
+        <Grid xs={9}>
           <SalonResult />
         </Grid>
       </Grid>

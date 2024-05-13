@@ -1,16 +1,22 @@
-import { Paper, styled } from "@mui/material";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+import { Grid } from "@mui/material";
+import RecipeReviewCard from "../salon-info/SalonInfoCard";
 
 const SalonResult = () => {
     return (
-        <Item>xs=8</Item>
+      <Grid container direction="row" style={{display: "flex",
+      justifyContent: "space-between"}}>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+        <RecipeReviewCard/>
+      </Grid>
+        
     )
 }
 
