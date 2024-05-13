@@ -4,6 +4,7 @@ import FaboAppBar from "./modules/fabo-app-bar/FaboAppBar";
 import { Outlet } from "react-router";
 import MenuDrawer from "./modules/navigation/MenuDrawer";
 import { useState } from "react";
+import FaboFooter from "./modules/fabo-app-footer/FaboFooter";
 
 const MainHeader = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -21,11 +22,18 @@ const MainHeader = () => {
   );
 };
 
+const Footer = () => {
+  return (
+    <FaboFooter/>
+  );
+}
+
 const FaboApp = () => {
   return (
     <UserContextContainer.Provider>
       <MainHeader />
       <Outlet />
+      <Footer />
     </UserContextContainer.Provider>
   );
 };
