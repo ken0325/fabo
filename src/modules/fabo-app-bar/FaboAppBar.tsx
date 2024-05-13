@@ -13,6 +13,7 @@ import {
   FormGroup,
   FormControlLabel,
   Switch,
+  Drawer,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
@@ -24,11 +25,20 @@ import {
 } from "@mui/icons-material";
 import { UserContextContainer } from "../../contexts/UserContext";
 
-const FaboAppBar = () => {
-  const {
-    auth,
-    setAuth,
-  } = UserContextContainer.useContainer()
+interface FaboAppBarProps {
+  drawerContent?: React.ReactNode;
+  drawerOpen?: boolean;
+  drawerOnClose?: () => void;
+  drawerOnToggle?: () => void;
+}
+
+const FaboAppBar = ({
+  drawerContent,
+  drawerOpen = true,
+  drawerOnClose,
+  drawerOnToggle,
+}: FaboAppBarProps) => {
+  const { auth, setAuth } = UserContextContainer.useContainer();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,15 +75,14 @@ const FaboAppBar = () => {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={drawerOnToggle}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             髮寳
           </Typography>
-          {!auth && (
-            <Button color="inherit">Login</Button>
-          )}
+          {!auth && <Button color="inherit">Login</Button>}
           {auth && (
             <div>
               <IconButton
@@ -102,10 +111,12 @@ const FaboAppBar = () => {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>
-                  <Avatar />&nbsp;Profile
+                  <Avatar />
+                  &nbsp;Profile
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <Avatar />&nbsp;My account
+                  <Avatar />
+                  &nbsp;My account
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={handleClose}>
@@ -131,6 +142,11 @@ const FaboAppBar = () => {
           )}
         </Toolbar>
       </AppBar>
+      {!!drawerContent && (
+        <Drawer open={drawerOpen} onClose={drawerOnClose}>
+        {drawerContent}
+      </Drawer>
+      )}
     </Box>
   );
 };
