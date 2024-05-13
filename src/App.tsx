@@ -36,8 +36,8 @@ const FaboApp = () => {
       <MainHeader />
       <StyledContainer maxWidth="lg">
       <Outlet />
-      <Footer />
       </StyledContainer>
+      <Footer />
     </UserContextContainer.Provider>
   );
 };
