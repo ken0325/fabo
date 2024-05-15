@@ -58,4 +58,5 @@ const BusinessHours = () => {
         </div>
     );
 };
+
 export default BusinessHours;

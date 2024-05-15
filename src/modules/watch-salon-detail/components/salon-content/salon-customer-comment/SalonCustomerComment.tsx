@@ -16,7 +16,7 @@ const styles = {
     marginBottom: 16
 };
 
-const CustomerComment = () => {
+const SalonCustomerComment = () => {
     return (
         <div>
             <h1>|&nbsp;評價</h1>
@@ -51,4 +51,4 @@ const CustomerComment = () => {
         </div>
     );
 };
-export default CustomerComment;
+export default SalonCustomerComment;

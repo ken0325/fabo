@@ -79,7 +79,7 @@ const SalonImages = () => {
         style={{
             display: "flex",
             justifyContent: "space-between",
-            paddingBottom: 50,
+            // paddingBottom: 50,
         }}
     >
         {itemData.slice(0, 4).map((item, index, arr) => (

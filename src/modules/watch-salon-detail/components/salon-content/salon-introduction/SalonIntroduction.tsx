@@ -1,5 +1,5 @@
 
-const Introduction = () => {
+const SalonIntroduction = () => {
     return (
         <div>
             <h1>|&nbsp;簡介</h1>
@@ -7,4 +7,4 @@ const Introduction = () => {
         </div>
     );
 };
-export default Introduction;
+export default SalonIntroduction;
