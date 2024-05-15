@@ -4,6 +4,7 @@ import SalonFeatures from './salon-features/SalonFeatures';
 import SalonPlan from './salon-plan/SalonPlan';
 import SalonIntroduction from './salon-introduction/SalonIntroduction';
 import SalonCustomerComment from './salon-customer-comment/SalonCustomerComment';
+import SalonHairstylist from './salon-hairstylist/SalonHairstylist';
 
 const SalonContent = () => {
     return (
@@ -12,7 +13,7 @@ const SalonContent = () => {
                 paddingRight: 50,
             }}>
                 <Stack>
-                    <SalonPlan />
+                    {/* <SalonPlan /> */}
                     <SalonIntroduction />
                     <SalonCustomerComment />
                 </Stack>
@@ -27,6 +28,7 @@ const SalonContent = () => {
                     <Stack>
                         <SalonInfo />
                         <SalonFeatures />
+                        <SalonHairstylist />
                     </Stack>
                 </div>
             </Grid>

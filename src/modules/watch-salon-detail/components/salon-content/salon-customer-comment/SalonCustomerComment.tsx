@@ -19,7 +19,7 @@ const styles = {
 const SalonCustomerComment = () => {
     return (
         <div>
-            <h1>|&nbsp;評價</h1>
+            <h1>|&nbsp;評價 ({data.length})</h1>
             {data.slice(0, 3).map((item, index, arr) => (
                 <Card key={item.id} style={styles}>
                     <CardHeader
