@@ -44,7 +44,8 @@ function CustomTabPanel(props: TabPanelProps) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    {/* <Typography>{children}</Typography> */}
+                    {children}
                 </Box>
             )}
         </div>
@@ -62,7 +63,7 @@ function test(uuid: string, value: number, index: number) {
     const aaa = planData.filter(element => element.categoryUUID.includes(uuid));
     return (
         aaa.map((item, index, arr) => (
-            <CustomTabPanel value={value} index={index}>
+            <CustomTabPanel key={index} value={value} index={index}>
                 {item.planName}<br />
                 {item.description}<br />
                 {item.cost}<br />
@@ -102,7 +103,6 @@ function NestedModal(uuid: string, details: string) {
                     <p id="parent-modal-description" className="modal-description">
                         {details}
                     </p>
-
                 </ModalContent>
             </Modal>
         </div>
@@ -127,7 +127,7 @@ const BasicTabs = () => {
                     <Tab label="Item Two" {...a11yProps(1)} />
                     <Tab label="Item Three" {...a11yProps(2)} /> */}
                     {filteredGenre.map((item, index, arr) => (
-                        <Tab label={item.categoryName} {...a11yProps(index)} />
+                        <Tab key={index} label={item.categoryName} {...a11yProps(index)} />
                     ))}
                 </Tabs>
             </Box>

@@ -13,7 +13,7 @@ const SalonContent = () => {
                 paddingRight: 50,
             }}>
                 <Stack>
-                    {/* <SalonPlan /> */}
+                    <SalonPlan />
                     <SalonIntroduction />
                     <SalonCustomerComment />
                 </Stack>

@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, Container, Stack, Typography } from "@mui/material";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const data = [
@@ -14,7 +14,7 @@ const SalonHairstylist = () => {
             <h1>|&nbsp;髮型師 ({data.length})</h1>
             <Stack>
                 {data.slice(0, 3).map((item, index, arr) =>
-                    <Card key={index} sx={{ display: 'flex' }} style={{
+                    <Card onClick={() => { console.log('onClick'); }} key={index} sx={{ display: 'flex' }} style={{
                         marginBottom: 10
                     }}>
                         <CardMedia
@@ -32,9 +32,9 @@ const SalonHairstylist = () => {
                                     作品 ({item.works})
                                 </Typography>
                             </CardContent>
-                            <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-
-                            </Box>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyItems: 'end', justifyContent: 'flex-end' }}>
+                            <NavigateNextIcon />
                         </Box>
                     </Card>)}
             </Stack>
