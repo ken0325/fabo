@@ -113,7 +113,7 @@ const UserLoginDialog = ({ open, handleCloseModal }: UserLoginDialogProps) => {
             style={{ width: "100%" }}
             onClick={handleLogin}
           >
-            注冊
+            註冊
           </Button>
         </Typography>
       </Box>
