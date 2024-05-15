@@ -153,6 +153,7 @@ const SalonPlan = () => {
         <div>
             <h1>|&nbsp;預約</h1>
             <BasicTabs />
+            <hr/>
         </div>
     );
 };

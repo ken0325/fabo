@@ -38,6 +38,7 @@ const SalonHairstylist = () => {
                         </Box>
                     </Card>)}
             </Stack>
+            <hr/>
             <Button size="large" endIcon={<NavigateNextIcon />} onClick={() => { console.log('onClick'); }}>查看所有髮型師</Button>
         </div>
     );
