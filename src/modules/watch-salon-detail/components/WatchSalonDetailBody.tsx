@@ -9,11 +9,12 @@ import SalonImages from "../components/salon-images/SalonImages";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import Introduction from "../components/salon-introduction/SalonIntroduction";
 import CustomerComment from "../components/customer-comment/CustomerComment";
+import SalonPlan from "../components/salon-plan/SalonPlan";
 
 export const SalonDetailPageBody = () => {
     return (
         <Suspense fallback={<div>loading</div>}>
-            <Grid>
+            <Grid marginBottom={10}>
                 <div
                     style={{
                         display: "flex"
@@ -57,6 +58,7 @@ export const SalonDetailPageBody = () => {
                         paddingRight: 50,
                     }}>
                         <Stack>
+                            <SalonPlan />
                             <Introduction />
                             <CustomerComment />
                         </Stack>
