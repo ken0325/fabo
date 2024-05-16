@@ -119,7 +119,7 @@ const SalonCustomerComment = () => {
                 </StyledPaper>
             ))}
             <hr />
-            <Button size="large" endIcon={<NavigateNextIcon />} onClick={() => { console.log('onClick'); }}>查看所有評價</Button>
+            <Button size="large" endIcon={<NavigateNextIcon />} onClick={() => { console.log('onClick'); }} href="/salon/100/comment">查看所有評價</Button>
         </div>
     );
 };
