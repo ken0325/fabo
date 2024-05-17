@@ -1,5 +1,5 @@
-import { Grid } from "@mui/material";
 import { WatchSalonCommentContainer } from "../contexts/WatchSalonCommentContext";
+import { SalonCommentPageBody } from "../components/WatchSalonCommentBody";
 
 export const SalonCommentContainer = ({ children }: { children: JSX.Element }) => {
     return (
@@ -9,8 +9,10 @@ export const SalonCommentContainer = ({ children }: { children: JSX.Element }) =
 
 const WatchSalonCommentPage = () => {
     return (
-        <p>this is comment</p>
-    );
+        <SalonCommentContainer>
+          <SalonCommentPageBody />
+        </SalonCommentContainer>
+      );
 };
 
 export default WatchSalonCommentPage;
