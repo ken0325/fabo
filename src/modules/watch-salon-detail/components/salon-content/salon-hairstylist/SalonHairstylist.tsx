@@ -39,7 +39,7 @@ const SalonHairstylist = () => {
                     </Card>)}
             </Stack>
             <hr/>
-            <Button size="large" endIcon={<NavigateNextIcon />} onClick={() => { console.log('onClick'); }}>查看所有髮型師</Button>
+            <Button size="large" endIcon={<NavigateNextIcon />} href="/salon/100/hairstylist">查看所有髮型師</Button>
         </div>
     );
 };

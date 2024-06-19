@@ -14,7 +14,7 @@ const styles = {
 const RecipeReviewCard = () => {
   return (
     <Card sx={{ maxWidth: 275 }} style={styles}>
-      <CardActionArea>
+      <CardActionArea href="/salon/100/detail">
         <CardMedia
           component="img"
           height="140"

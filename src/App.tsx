@@ -6,6 +6,7 @@ import MenuDrawer from "./modules/navigation/MenuDrawer";
 import { useState } from "react";
 import { Container, styled } from "@mui/material";
 import FaboFooter from "./modules/fabo-app-footer/FaboFooter";
+import ScrollButton from '../src/modules/scrollButton/ScrollButton'; 
 
 const MainHeader = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -38,6 +39,7 @@ const FaboApp = () => {
       <StyledContainer maxWidth="lg">
       <Outlet />
       </StyledContainer>
+      <ScrollButton /> 
       <Footer />
     </UserContextContainer.Provider>
   );

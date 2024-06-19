@@ -85,7 +85,7 @@ const SalonImages = () => {
         {itemData.slice(0, 4).map((item, index, arr) => (
             index == 3 ?
                 <Card sx={{ maxWidth: 275 }} style={styles} key={item.img} onClick={() => console.log('test')}>
-                    <CardActionArea>
+                    <CardActionArea href="/salon/100/gallery">
                         <CardMedia
                             // style={{ filter: "grayscale(100%)" }}
                             component="img"
