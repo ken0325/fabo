@@ -116,7 +116,7 @@ const SalonImages = () => {
                 </Card>
                 :
                 <Card sx={{ maxWidth: 275 }} style={styles} key={item.img} onClick={() => console.log('test')}>
-                    <CardActionArea>
+                    <CardActionArea href="/salon/100/gallery">
                         <CardMedia
                             component="img"
                             // height="140"
