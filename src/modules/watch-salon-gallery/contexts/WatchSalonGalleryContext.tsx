@@ -1,5 +1,5 @@
 import { createContainer } from "unstated-next";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, MouseEventHandler } from "react";
 import { SalonGalleryType } from "../../../types/SalonGallery";
 import { SalonGalleryCategoryType } from "../../../types/SalonGalleryCategory";
 
@@ -10,13 +10,25 @@ export const useWatchSalonGallery = () => {
   //   const URL = "";
   //   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 24;
   const pageCount = filterValue === "" ? Math.ceil(salonImages.length / itemsPerPage) : Math.ceil(salonImagesFiltered.length / itemsPerPage);
   const currentItems =
     filterValue === ""
       ? salonImages.slice((page - 1) * itemsPerPage, page * itemsPerPage)
       : salonImagesFiltered.slice((page - 1) * itemsPerPage, page * itemsPerPage);
   const [salonGalleryCategory, setSalonGalleryCategory] = useState<SalonGalleryCategoryType[]>([]);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
+
+  const openImageViewer = useCallback((index: number) => {
+    setCurrentImage(index);
+    setIsViewerOpen(true);
+  }, []);
+
+  const closeImageViewer = () => {
+    setCurrentImage(0);
+    setIsViewerOpen(false);
+  };
 
   const filter = (value: string) => {
     setFilterValue(value);
@@ -175,6 +187,10 @@ export const useWatchSalonGallery = () => {
     handleChange,
     filter,
     salonGalleryCategory,
+    currentImage,
+    isViewerOpen,
+    openImageViewer,
+    closeImageViewer,
   };
 };
 

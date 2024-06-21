@@ -7,15 +7,10 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Button from '@mui/material/Button';
-import { Box } from "@mui/material";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+import ImageViewer from "react-simple-image-viewer";
+// react-native-image-zoom-viewer
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 export const SalonGalleryPageBody = () => {
   const contextValue = WatchSalonGalleryContainer.useContainer();
@@ -35,9 +30,25 @@ export const SalonGalleryPageBody = () => {
               srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
               src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
               loading="lazy"
+              alt=""
+              onClick={() => contextValue.openImageViewer(index)}
             />
           </ImageListItem>
         ))}
+        {contextValue.isViewerOpen && (
+        <ImageViewer
+          src={contextValue.currentItems.map((e) => (e.img))}
+          currentIndex={contextValue.currentImage}
+          onClose={contextValue.closeImageViewer}
+          disableScroll={false}
+          backgroundStyle={{
+            backgroundColor: "rgba(0,0,0,0.5)"
+          }}
+          closeOnClickOutside={true}
+          rightArrowComponent={<ArrowCircleRightIcon sx={{ fontSize: 80 }}></ArrowCircleRightIcon>}
+          leftArrowComponent={<ArrowCircleLeftIcon sx={{ fontSize: 80 }}></ArrowCircleLeftIcon>}
+        />
+      )}
       </ImageList>
       <Pagination
         count={contextValue.pageCount}
