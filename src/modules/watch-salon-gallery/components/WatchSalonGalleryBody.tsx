@@ -7,6 +7,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Button from '@mui/material/Button';
+import { Box } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,8 +24,9 @@ export const SalonGalleryPageBody = () => {
       <p>Gallery</p>
       <Stack direction="row" spacing={2}>
         <Button variant="outlined" onClick={()=>{contextValue.filter('')}}>All</Button>
-        <Button variant="outlined" onClick={()=>{contextValue.filter('A')}}>A type</Button>
-        <Button variant="outlined" onClick={()=>{contextValue.filter('B')}}>B type</Button>
+        {contextValue.salonGalleryCategory.map((item) => (
+          <Button variant="outlined" key={item.id} onClick={()=>{contextValue.filter(item.category)}}>{item.category}</Button>
+        ))}
       </Stack>
       <ImageList cols={6}>
         {contextValue.currentItems.map((item, index, arr) => (
