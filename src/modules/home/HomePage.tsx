@@ -1,7 +1,7 @@
 import { Box, Divider, Grid, Link, Stack, Typography } from "@mui/material";
 import { Suspense } from "react";
 import Carousel from "react-material-ui-carousel";
-// deploya
+
 interface Props {}
 const HomeePage = (props: Props) => {
   var items = ["A", "B", "C"];
@@ -38,7 +38,7 @@ const HomeePage = (props: Props) => {
               justifyContent="space-around"
               alignItems="center"
             >
-              <Grid xs={3}>
+              <Grid xs={3} item>
                 <Box
                   height={100}
                   my={4}
@@ -51,7 +51,7 @@ const HomeePage = (props: Props) => {
                   advertisement
                 </Box>
               </Grid>
-              <Grid xs={3}>
+              <Grid xs={3} item>
                 <Box
                   height={100}
                   my={4}
@@ -64,7 +64,7 @@ const HomeePage = (props: Props) => {
                   advertisement
                 </Box>
               </Grid>
-              <Grid xs={3}>
+              <Grid xs={3} item>
                 <Box
                   height={100}
                   my={4}
@@ -124,8 +124,8 @@ const HomeePage = (props: Props) => {
             justifyContent="flex-start"
             alignItems="center"
           >
-            {districts.map((district) => (
-              <Link href="#">{district}</Link>
+            {districts.map((district, i) => (
+              <Link href="#" key={i}>{district}</Link>
             ))}
           </Stack>
         </div>
@@ -141,8 +141,8 @@ const HomeePage = (props: Props) => {
             justifyContent="flex-start"
             alignItems="center"
           >
-            {types.map((type) => (
-              <Link href="#">{type}</Link>
+            {types.map((type, i) => (
+              <Link href="#" key={i}>{type}</Link>
             ))}
           </Stack>
           <p>
