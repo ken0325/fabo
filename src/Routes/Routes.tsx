@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import HomePage from "../modules/home/HomePage";
+import HomePage from "../modules/homee/HomeePage";
 import WatchSalonPage from "../modules/watch-salon/pages/WatchSalonPage";
 import ApplyFormPage from "../modules/join-as-partner/ApplyFormPage";
 import WatchSalonDetailPage from "../modules/watch-salon-detail/pages/WatchSalonDetailPage";

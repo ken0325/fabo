@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Carousel from "react-material-ui-carousel";
 
 interface Props {}
-const HomePage = (props: Props) => {
+const HomeePage = (props: Props) => {
   var items = ["A", "B", "C"];
   var districts = ["觀塘", "葵青", "深水埗", "尖沙咀", "旺角"];
   var types = [
@@ -256,4 +256,4 @@ const HomePage = (props: Props) => {
   );
 };
 
-export default HomePage;
+export default HomeePage;
