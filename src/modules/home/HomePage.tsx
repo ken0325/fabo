@@ -52,8 +52,6 @@ const HomeePage = (props: Props) => {
         <h1 style={{ textAlign: "start", display: "flex" }}>
           【髮型屋推介】香港No.1 Hair Salon 網上預約平台｜獨家優惠
         </h1>
-        <p>{t('home')}</p>
-        <p>{t('page2')}</p>
         <Grid>
           <Box sx={{ flexGrow: 1 }}>
             <Grid
@@ -138,7 +136,7 @@ const HomeePage = (props: Props) => {
             ))}
           </Carousel>
         </Grid>
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "20px", marginBottom: "20px" }}>
           <Stack
             direction="row"
             justifyContent="space-between"

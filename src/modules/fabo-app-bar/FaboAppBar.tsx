@@ -12,7 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { UserContextContainer } from "../../contexts/UserContext";
 import PersonalMenu from "./component/PersonalMenu";
-import { FABO_APP_NAME_CHI } from "../app-fwk/constants/CommonConstatns";
+// import { FABO_APP_NAME_CHI } from "../app-fwk/constants/CommonConstatns";
 import MailIcon from "@mui/icons-material/Mail";
 import UserLoginDialog from "./UserLoginDialog";
 import { useTranslation } from 'react-i18next';
@@ -77,10 +77,11 @@ const FaboAppBar = ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {FABO_APP_NAME_CHI}
+            {/* {FABO_APP_NAME_CHI} */}
+            {t('fabo')}
           </Typography>
           <Button href="/apply" color="inherit">
-            Join us
+          {t('joinUs')}
           </Button>
           <div>
             <Button
@@ -108,7 +109,7 @@ const FaboAppBar = ({
             </Menu>
           </div>
           {!auth ? (
-            <Button color="inherit" onClick={handleOpenModal}>Login</Button>
+            <Button color="inherit" onClick={handleOpenModal}>{t('login')}</Button>
           ) : (
             <>
               <Badge badgeContent={4} color="primary">
