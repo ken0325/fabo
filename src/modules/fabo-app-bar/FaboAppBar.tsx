@@ -15,6 +15,11 @@ import PersonalMenu from "./component/PersonalMenu";
 import { FABO_APP_NAME_CHI } from "../app-fwk/constants/CommonConstatns";
 import MailIcon from "@mui/icons-material/Mail";
 import UserLoginDialog from "./UserLoginDialog";
+import { useTranslation } from 'react-i18next';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
+import LanguageIcon from '@mui/icons-material/Language';
 
 interface FaboAppBarProps {
   drawerContent?: React.ReactNode;
@@ -44,6 +49,19 @@ const FaboAppBar = ({
   const handleOpenModal = () => setOpen(true);
   const handleCloseModal = () => setOpen(false);
 
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng: string | undefined) => {
+        i18n.changeLanguage(lng);
+  };
+  const [anchorElLanguageMenu, setAnchorElLanguageMenu] = useState<null | HTMLElement>(null);
+  const openLanguageMenu = Boolean(anchorElLanguageMenu);
+  const handleClickLanguageMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElLanguageMenu(event.currentTarget);
+  };
+  const handleCloseLanguageMenu = () => {
+    setAnchorElLanguageMenu(null);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -64,6 +82,31 @@ const FaboAppBar = ({
           <Button href="/apply" color="inherit">
             Join us
           </Button>
+          <div>
+            <Button
+              id="fade-button"
+              aria-controls={openLanguageMenu ? 'fade-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={openLanguageMenu ? 'true' : undefined}
+              onClick={handleClickLanguageMenu}
+              color="inherit"
+            >
+              {<LanguageIcon />}{t('language')}
+            </Button>
+            <Menu
+              id="fade-menu"
+              MenuListProps={{
+                'aria-labelledby': 'fade-button',
+              }}
+              anchorEl={anchorElLanguageMenu}
+              open={openLanguageMenu}
+              onClose={handleCloseLanguageMenu}
+              TransitionComponent={Fade}
+            >
+              <MenuItem onClick={() => {changeLanguage("zh"); handleCloseLanguageMenu();}}>繁體中文</MenuItem>
+              <MenuItem onClick={() => {changeLanguage("en"); handleCloseLanguageMenu();}}>English</MenuItem>
+            </Menu>
+          </div>
           {!auth ? (
             <Button color="inherit" onClick={handleOpenModal}>Login</Button>
           ) : (

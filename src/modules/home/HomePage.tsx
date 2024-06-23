@@ -1,6 +1,19 @@
-import { Box, Divider, Grid, Link, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Grid,
+  Link,
+  Stack,
+  Typography,
+  styled,
+  Paper,
+  Button,
+} from "@mui/material";
 import { Suspense } from "react";
 import Carousel from "react-material-ui-carousel";
+import RecipeReviewCard from "../watch-salon/components/salon-page-body/salon-info/SalonInfoCard";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 const HomeePage = (props: Props) => {
@@ -23,12 +36,24 @@ const HomeePage = (props: Props) => {
     "小童剪髮",
   ];
 
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
+
+  const { t } = useTranslation();
+  
   return (
     <Suspense fallback={<div>loading</div>}>
       <div className="App">
         <h1 style={{ textAlign: "start", display: "flex" }}>
           【髮型屋推介】香港No.1 Hair Salon 網上預約平台｜獨家優惠
         </h1>
+        <p>{t('home')}</p>
+        <p>{t('page2')}</p>
         <Grid>
           <Box sx={{ flexGrow: 1 }}>
             <Grid
@@ -92,6 +117,7 @@ const HomeePage = (props: Props) => {
           >
             {items.map((item, i) => (
               <Box
+                key={i}
                 display="flex"
                 // width={500}
                 height={250}
@@ -112,6 +138,49 @@ const HomeePage = (props: Props) => {
             ))}
           </Carousel>
         </Grid>
+        <div style={{ marginTop: "20px" }}>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            spacing={1}
+            style={{ marginBottom: "20px" }}
+          >
+            <h1>|&nbsp;熱門推介</h1>
+            <Button
+              size="large"
+              endIcon={<NavigateNextIcon />}
+              onClick={() => {
+                console.log("onClick");
+              }}
+              href="/search"
+            >
+              查看所有髮型屋
+            </Button>
+          </Stack>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid
+                container
+                rowSpacing={1}
+                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+              >
+                <Grid item xs={3}>
+                  <RecipeReviewCard />
+                </Grid>
+                <Grid item xs={3}>
+                  <RecipeReviewCard />
+                </Grid>
+                <Grid item xs={3}>
+                  <RecipeReviewCard />
+                </Grid>
+                <Grid item xs={3}>
+                  <RecipeReviewCard />
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </div>
         <div>
           <h1>|&nbsp;香港各區的髮型屋Hair Salon</h1>
           <Stack
@@ -125,7 +194,9 @@ const HomeePage = (props: Props) => {
             alignItems="center"
           >
             {districts.map((district, i) => (
-              <Link href="#" key={i}>{district}</Link>
+              <Link href="#" key={i}>
+                {district}
+              </Link>
             ))}
           </Stack>
         </div>
@@ -142,7 +213,9 @@ const HomeePage = (props: Props) => {
             alignItems="center"
           >
             {types.map((type, i) => (
-              <Link href="#" key={i}>{type}</Link>
+              <Link href="#" key={i}>
+                {type}
+              </Link>
             ))}
           </Stack>
           <p>
