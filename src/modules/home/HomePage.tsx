@@ -11,13 +11,13 @@ import {
 } from "@mui/material";
 import { Suspense } from "react";
 import Carousel from "react-material-ui-carousel";
-import RecipeReviewCard from "../watch-salon/components/salon-page-body/salon-info/SalonInfoCard";
+import SalonReviewCard from "../watch-salon/components/salon-page-body/salon-info/SalonInfoCard2";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 const HomeePage = (props: Props) => {
-  var items = ["A", "B", "C"];
+  var items = ["first", "second", "third"];
   var districts = ["觀塘", "葵青", "深水埗", "尖沙咀", "旺角"];
   var types = [
     "剪頭髮",
@@ -45,7 +45,13 @@ const HomeePage = (props: Props) => {
   }));
 
   const { t } = useTranslation();
-  
+
+  const parameter = {
+    image:
+      "https://staticfiles2.hellotoby.com/gallery/2024/05/91649002.jpeg!gallery-preview",
+    salonid: 100,
+  };
+
   return (
     <Suspense fallback={<div>loading</div>}>
       <div className="App">
@@ -53,55 +59,6 @@ const HomeePage = (props: Props) => {
           【髮型屋推介】香港No.1 Hair Salon 網上預約平台｜獨家優惠
         </h1>
         <Grid>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid
-              container
-              spacing={2}
-              direction="row"
-              justifyContent="space-around"
-              alignItems="center"
-            >
-              <Grid xs={3} item>
-                <Box
-                  height={100}
-                  my={4}
-                  display="flex"
-                  alignItems="center"
-                  gap={4}
-                  p={2}
-                  sx={{ border: "2px solid grey" }}
-                >
-                  advertisement
-                </Box>
-              </Grid>
-              <Grid xs={3} item>
-                <Box
-                  height={100}
-                  my={4}
-                  display="flex"
-                  alignItems="center"
-                  gap={4}
-                  p={2}
-                  sx={{ border: "2px solid grey" }}
-                >
-                  advertisement
-                </Box>
-              </Grid>
-              <Grid xs={3} item>
-                <Box
-                  height={100}
-                  my={4}
-                  display="flex"
-                  alignItems="center"
-                  gap={4}
-                  p={2}
-                  sx={{ border: "2px solid grey" }}
-                >
-                  advertisement
-                </Box>
-              </Grid>
-            </Grid>
-          </Box>
           <Carousel
             height={250}
             animation={"slide"}
@@ -119,7 +76,7 @@ const HomeePage = (props: Props) => {
                 display="flex"
                 // width={500}
                 height={250}
-                bgcolor="lightgreen"
+                bgcolor="gray"
                 alignItems="center"
                 justifyContent="center"
                 style={{ aspectRatio: 0 / 3 }}
@@ -157,26 +114,51 @@ const HomeePage = (props: Props) => {
             </Button>
           </Stack>
           <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
-              <Grid
-                container
-                rowSpacing={1}
-                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-              >
-                <Grid item xs={3}>
-                  <RecipeReviewCard />
-                </Grid>
-                <Grid item xs={3}>
-                  <RecipeReviewCard />
-                </Grid>
-                <Grid item xs={3}>
-                  <RecipeReviewCard />
-                </Grid>
-                <Grid item xs={3}>
-                  <RecipeReviewCard />
-                </Grid>
-              </Grid>
-            </Grid>
+            <Stack
+              spacing={{ xs: 1 }}
+              direction="row"
+              useFlexGap
+              flexWrap="wrap"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <SalonReviewCard
+                parameter={{
+                  image:
+                    "https://staticfiles2.hellotoby.com/gallery/2024/05/91649002.jpeg!gallery-preview",
+                  salonId: 1,
+                  salonName: "髮型屋1", salonLocation: "MonK kok", salonMarks: "4.5", salonComment: 166,
+                  salonTag: ["國際/本地認證"]
+                }}
+              />
+              <SalonReviewCard
+                parameter={{
+                  image:
+                    "https://staticfiles2.hellotoby.com/gallery/2023/01/32644722.jpeg!gallery-preview",
+                  salonId: 2,
+                  salonName: "髮型屋2", salonLocation: "MonK kok", salonMarks: "3", salonComment: 99,
+                  salonTag: ["國際/本地認證", "日本品牌"]
+                }}
+              />
+              <SalonReviewCard
+                parameter={{
+                  image:
+                    "https://staticfiles2.hellotoby.com/gallery/2020/02/77810155.png!gallery-preview",
+                  salonId: 3,
+                  salonName: "髮型屋3", salonLocation: "MonK kok", salonMarks: "3.8", salonComment: 156,
+                  salonTag: ["日本品牌"]
+                }}
+              />
+              <SalonReviewCard
+                parameter={{
+                  image:
+                    "https://staticfiles2.hellotoby.com/gallery/2021/09/79632940.jpeg!gallery-preview",
+                  salonId: 4,
+                  salonName: "髮型屋4", salonLocation: "MonK kok", salonMarks: "4.4", salonComment: 121,
+                  salonTag: ["寬敞空間"]
+                }}
+              />
+            </Stack>
           </Box>
         </div>
         <div>
