@@ -77,7 +77,7 @@ const SalonReviewCard = (props: SalonInfoCardType) => {
           <Typography gutterBottom variant="h5" component="div">
             {props.parameter.salonName}
           </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          <Typography sx={{ mb: 1 }} color="text.secondary">
             <Stack
               direction="row"
               justifyContent="flex-start"
