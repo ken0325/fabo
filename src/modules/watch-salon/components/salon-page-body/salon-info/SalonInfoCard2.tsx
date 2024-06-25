@@ -59,7 +59,7 @@ const SalonReviewCard = (props: SalonInfoCardType) => {
           </div>
         </div>
         <CardContent>
-          <Typography
+          <Typography component='div'
             sx={{ fontSize: 14 }}
             color="text.secondary"
             style={{ marginBottom: 5 }}
@@ -77,7 +77,7 @@ const SalonReviewCard = (props: SalonInfoCardType) => {
           <Typography gutterBottom variant="h5" component="div">
             {props.parameter.salonName}
           </Typography>
-          <Typography sx={{ mb: 1 }} color="text.secondary">
+          <Typography sx={{ mb: 1 }} color="text.secondary" component='div'>
             <Stack
               direction="row"
               justifyContent="flex-start"
@@ -103,7 +103,7 @@ const SalonReviewCard = (props: SalonInfoCardType) => {
               whiteSpace: "pre-line",
             }}
           >
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" component='div'>
               {props.parameter.salonDescription}
             </Typography>
           </div>

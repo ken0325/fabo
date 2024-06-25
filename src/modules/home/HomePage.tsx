@@ -13,8 +13,6 @@ import { Suspense } from "react";
 import Carousel from "react-material-ui-carousel";
 import SalonReviewCard from "../watch-salon/components/salon-page-body/salon-info/SalonInfoCard2";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useTranslation } from "react-i18next";
-import { SalonInfoCardType } from "../../types/SalonInfoCard";
 
 interface Props {}
 const HomeePage = (props: Props) => {
@@ -36,22 +34,6 @@ const HomeePage = (props: Props) => {
     "油頭",
     "小童剪髮",
   ];
-
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
-
-  const { t } = useTranslation();
-
-  const parameter = {
-    image:
-      "https://staticfiles2.hellotoby.com/gallery/2024/05/91649002.jpeg!gallery-preview",
-    salonid: 100,
-  };
 
   return (
     <Suspense fallback={<div>loading</div>}>
