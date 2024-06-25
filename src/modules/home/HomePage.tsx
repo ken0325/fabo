@@ -14,6 +14,7 @@ import Carousel from "react-material-ui-carousel";
 import SalonReviewCard from "../watch-salon/components/salon-page-body/salon-info/SalonInfoCard2";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useTranslation } from "react-i18next";
+import { SalonInfoCardType } from "../../types/SalonInfoCard";
 
 interface Props {}
 const HomeePage = (props: Props) => {
@@ -58,6 +59,7 @@ const HomeePage = (props: Props) => {
         <h1 style={{ textAlign: "start", display: "flex" }}>
           【髮型屋推介】香港No.1 Hair Salon 網上預約平台｜獨家優惠
         </h1>
+        {/* Carousel */}
         <Grid>
           <Carousel
             height={250}
@@ -93,6 +95,7 @@ const HomeePage = (props: Props) => {
             ))}
           </Carousel>
         </Grid>
+        {/* 熱門髮型屋推介 */}
         <div style={{ marginTop: "20px", marginBottom: "20px" }}>
           <Stack
             direction="row"
@@ -101,7 +104,7 @@ const HomeePage = (props: Props) => {
             spacing={1}
             style={{ marginBottom: "20px" }}
           >
-            <h1>|&nbsp;熱門推介</h1>
+            <h1>|&nbsp;熱門髮型屋推介</h1>
             <Button
               size="large"
               endIcon={<NavigateNextIcon />}
@@ -127,8 +130,13 @@ const HomeePage = (props: Props) => {
                   image:
                     "https://staticfiles2.hellotoby.com/gallery/2024/05/91649002.jpeg!gallery-preview",
                   salonId: 1,
-                  salonName: "髮型屋1", salonLocation: "MonK kok", salonMarks: "4.5", salonComment: 166,
-                  salonTag: ["國際/本地認證"]
+                  salonName: "髮型屋1",
+                  salonLocation: "尖沙咀",
+                  salonMarks: "4.5",
+                  salonComment: 166,
+                  salonTag: ["國際/本地認證"],
+                  discount: true,
+                  salonDescription: "La La Hair 擁有約10名專業的髮型師，所有髮型師皆有至少五年的理髮經驗。",
                 }}
               />
               <SalonReviewCard
@@ -136,8 +144,13 @@ const HomeePage = (props: Props) => {
                   image:
                     "https://staticfiles2.hellotoby.com/gallery/2023/01/32644722.jpeg!gallery-preview",
                   salonId: 2,
-                  salonName: "髮型屋2", salonLocation: "MonK kok", salonMarks: "3", salonComment: 99,
-                  salonTag: ["國際/本地認證", "日本品牌"]
+                  salonName: "髮型屋2",
+                  salonLocation: "觀塘",
+                  salonMarks: "3",
+                  salonComment: 99,
+                  salonTag: ["國際/本地認證", "日本品牌"],
+                  discount: false,
+                  salonDescription: "位於尖沙咀的Chinologic Hair，是全港首間採用Chinology髮哲學院品牌概念的髮廊。",
                 }}
               />
               <SalonReviewCard
@@ -145,8 +158,13 @@ const HomeePage = (props: Props) => {
                   image:
                     "https://staticfiles2.hellotoby.com/gallery/2020/02/77810155.png!gallery-preview",
                   salonId: 3,
-                  salonName: "髮型屋3", salonLocation: "MonK kok", salonMarks: "3.8", salonComment: 156,
-                  salonTag: ["日本品牌"]
+                  salonName: "髮型屋3",
+                  salonLocation: "觀塘",
+                  salonMarks: "3.8",
+                  salonComment: 156,
+                  salonTag: ["日本品牌"],
+                  discount: true,
+                  salonDescription: "Hair Ma Ma 雖然位於觀塘屋苑，收費親民划算，但 Hair Ma Ma 以客為本，承諾給您貴價髮型屋的尊貴和專業的服務體驗。",
                 }}
               />
               <SalonReviewCard
@@ -154,13 +172,41 @@ const HomeePage = (props: Props) => {
                   image:
                     "https://staticfiles2.hellotoby.com/gallery/2021/09/79632940.jpeg!gallery-preview",
                   salonId: 4,
-                  salonName: "髮型屋4", salonLocation: "MonK kok", salonMarks: "4.4", salonComment: 121,
-                  salonTag: ["寬敞空間"]
+                  salonName: "髮型屋4",
+                  salonLocation: "尖沙咀",
+                  salonMarks: "4.4",
+                  salonComment: 121,
+                  salonTag: ["寬敞空間"],
+                  discount: false,
+                  salonDescription: "Hair Concept Salon位於銅鑼灣，交通便利，由地鐵站步行數分鐘便能到達。",
                 }}
               />
             </Stack>
           </Box>
         </div>
+        {/* 熱門髮型推介 */}
+        <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            spacing={1}
+            style={{ marginBottom: "20px" }}
+          >
+            <h1>|&nbsp;熱門髮型推介</h1>
+            <Button
+              size="large"
+              endIcon={<NavigateNextIcon />}
+              onClick={() => {
+                console.log("onClick");
+              }}
+              href="#"
+            >
+              查看所有髮型
+            </Button>
+          </Stack>
+        </div>
+        {/* 各區髮型屋 */}
         <div>
           <h1>|&nbsp;香港各區的髮型屋Hair Salon</h1>
           <Stack
@@ -180,6 +226,7 @@ const HomeePage = (props: Props) => {
             ))}
           </Stack>
         </div>
+        {/* 髮型類別 */}
         <div>
           <h1>|&nbsp;香港各類型髮型屋Hair Salon</h1>
           <Stack
@@ -206,6 +253,7 @@ const HomeePage = (props: Props) => {
           </p>
         </div>
         <hr />
+        {/* Foba description */}
         <div>
           <h1>|&nbsp;髮型屋Hair Salon 常見問題</h1>
           <div style={{ marginBottom: 20 }}>
