@@ -1,4 +1,5 @@
-import { createBrowserRouter } from "react-router-dom";
+// import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router";
 import App from "../App";
 import HomePage from "../modules/home/HomePage";
 import WatchSalonPage from "../modules/watch-salon/pages/WatchSalonPage";
@@ -26,3 +27,4 @@ export const router = createBrowserRouter([
     }
 ]
 )
+// console.log('Router config loaded:', router);

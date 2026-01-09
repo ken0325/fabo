@@ -2,6 +2,7 @@ import "./App.css";
 import { UserContextContainer } from "./contexts/UserContext";
 import FaboAppBar from "./modules/fabo-app-bar/FaboAppBar";
 import { Outlet } from "react-router";
+// import { Outlet } from 'react-router-dom';
 import MenuDrawer from "./modules/navigation/MenuDrawer";
 import { useState } from "react";
 import { Container, styled } from "@mui/material";
